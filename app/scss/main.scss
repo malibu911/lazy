@@ -9,6 +9,7 @@
   background: 50% 50% / cover no-repeat;
   display: block;
   position: relative;
+  overflow: hidden;
 
   // cкрытие всех элементов на странице
   .logo,
@@ -17,12 +18,41 @@
   .text-frame-2,
   .box,
   .treeball-blue,
-  .treeball-orange {
+  .treeball-orange,
+  .timer {
     display: none;
+    // pointer-events: none;
   }
 
+  .timer {
+    height: 90px;
+    width: 90px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 4px solid red;
+    background-color: white;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+  }
+  .counter {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 54px;
+    font-weight: 700;
+    line-height: 50px;
+  }
+  .box {
+    cursor: pointer;
+    width: 208px;
+    height: 205px;
+    position: absolute;
+    bottom: 40px;
+    left: 50px;
+  }
   .logo {
-    pointer-events: none;
     height: 136px;
     width: 101px;
     position: absolute;
@@ -74,28 +104,207 @@
   // фаза 2
   &.phase_2 {
     background-image: url("../images/bg-2.svg");
+
+    .sloth {
+      display: block;
+      width: 420px;
+      height: 558px;
+      position: absolute;
+      right: 0;
+      top: 20px;
+      background-image: url("/images/sloth-2.svg");
+    }
+    .text-frame-1 {
+      display: block;
+      width: 424px;
+      height: 329px;
+      background-image: url("/images/cloud-2.svg");
+      position: absolute;
+      top: 105px;
+      left: 38px;
+    }
+    .treeball-blue {
+      display: block;
+      position: absolute;
+      width: 130px;
+      height: 150px;
+      bottom: 13px;
+      left: 409px;
+    }
   }
 
   // фаза 3 - игра
   &.phase_3 {
     background-image: url("../images/bg-3(game-area).svg");
+
+    .timer {
+      display: block;
+    }
+
+    .sloth {
+      display: block;
+      width: 365px;
+      height: 221px;
+      position: absolute;
+      right: -3%;
+      top: 20px;
+      background-image: url("/images/sloth-3.svg");
+    }
+    .text-frame-1 {
+      display: block;
+      width: 247px;
+      height: 94px;
+      background-image: url("/images/cloud-3.svg");
+      position: absolute;
+      top: 35px;
+      right: 326px;
+    }
+    .box {
+      display: block;
+    }
+    .treeball-blue {
+      display: block;
+      position: absolute;
+      height: 99px;
+      width: 70px;
+      top: 50%;
+      left: 50%;
+    }
+    .treeball-orange {
+      display: block;
+      position: absolute;
+      height: 99px;
+      width: 70px;
+      top: 40%;
+      left: 40%;
+    }
   }
 
-  // служебные фреймы, работают на выигрыше-проигрыше
-  .final {
-  }
   // фаза выигрыш
   &.phase_win {
     background-image: url("../images/bg-won.svg");
+
+    .sloth {
+      display: block;
+      width: 452px;
+      height: 570px;
+      position: absolute;
+      right: -5%;
+      top: -3%;
+      background-image: url("/images/sloth-1.svg");
+    }
+    .text-frame-1 {
+      display: block;
+      width: 290px;
+      height: 343px;
+      background-image: url("/images/cloud-4.svg");
+      position: absolute;
+      top: 289px;
+      right: 42px;
+    }
+
     // поведение фреймов при выигрыше
     &.final {
+      .text-frame-1 {
+        display: block;
+        width: 539px;
+        height: 189px;
+        background-image: url("/images/cloud-8.svg");
+        position: absolute;
+        top: 40px;
+        right: unset;
+        left: 20px;
+      }
+
+      .text-frame-2 {
+        display: block;
+        width: 479px;
+        height: 174px;
+        background-image: url("/images/cloud-9.svg");
+        position: absolute;
+        top: 186px;
+        right: 40px;
+      }
     }
   }
   // фаза проигрыш
   &.phase_lose {
     background-image: url("../images/bg-lose.svg");
+
+    .sloth {
+      display: block;
+      width: 452px;
+      height: 570px;
+      position: absolute;
+      right: -5%;
+      top: -3%;
+      background-image: url("/images/sloth-1.svg");
+    }
+
+    .text-frame-1 {
+      display: block;
+      width: 210px;
+      height: 198px;
+      background-image: url("/images/cloud-5.svg");
+      position: absolute;
+      top: 31px;
+      right: unset;
+      left: 156px;
+    }
+
+    .text-frame-2 {
+      display: block;
+      width: 237px;
+      height: 178px;
+      background-image: url("/images/cloud-6.svg");
+      position: absolute;
+      top: 293px;
+      right: 256px;
+    }
+
     // поведение фреймов при проигрыше
     &.final {
+      .text-frame-1 {
+        display: block;
+        width: 379px;
+        height: 157px;
+        background-image: url("/images/cloud-10.svg");
+        position: absolute;
+        top: 50px;
+        right: unset;
+        left: 40px;
+      }
+
+      .text-frame-2 {
+        display: block;
+        width: 401px;
+        height: 163px;
+        background-image: url("/images/cloud-11.svg");
+        position: absolute;
+        top: 171px;
+        right: 63px;
+      }
+    }
+  }
+  // служебные фреймы, работают на выигрыше-проигрыше
+  &.final {
+    background-image: url("/images/bg-final.svg");
+    .sloth {
+      display: block;
+      width: 640px;
+      height: 718px;
+      position: absolute;
+      right: unset;
+      top: unset;
+      bottom: -37%;
+      left: 50%;
+      transform: translateX(-50%);
+      background-image: url("/images/sloth-4.svg");
+    }
+    .logo{
+        display: block;
+        top: 20px;
+        right: 30px;
     }
   }
   // поведение картинок
