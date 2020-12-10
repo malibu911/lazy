@@ -1,0 +1,24 @@
+@font-face {
+    font-family: 'Compotes Citro';
+    src: url('Compotes-Citro.eot');
+    src: local('Compotes Citro'), local('Compotes-Citro'),
+        url('Compotes-Citro.eot?#iefix') format('embedded-opentype'),
+        url('Compotes-Citro.woff2') format('woff2'),
+        url('Compotes-Citro.woff') format('woff'),
+        url('Compotes-Citro.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Compotes Citro';
+    src: url('Compotes-CitroBold.eot');
+    src: local('Compotes Citro Bold'), local('Compotes-CitroBold'),
+        url('Compotes-CitroBold.eot?#iefix') format('embedded-opentype'),
+        url('Compotes-CitroBold.woff2') format('woff2'),
+        url('Compotes-CitroBold.woff') format('woff'),
+        url('Compotes-CitroBold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+

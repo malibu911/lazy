@@ -1,0 +1,107 @@
+@import "../fonts/stylesheet.css";
+
+.game-frame {
+  max-width: 750px;
+  max-width: 750px;
+  width: 750px;
+  height: 750px;
+  font-family: "Compotes Citro", sans-serif;
+  background: 50% 50% / cover no-repeat;
+  display: block;
+  position: relative;
+
+  // cкрытие всех элементов на странице
+  .logo,
+  .sloth,
+  .text-frame-1,
+  .text-frame-2,
+  .box,
+  .treeball-blue,
+  .treeball-orange {
+    display: none;
+  }
+
+  .logo {
+    pointer-events: none;
+    height: 136px;
+    width: 101px;
+    position: absolute;
+  }
+  .sloth,
+  .text-frame-1,
+  .text-frame-2 {
+    background: 50% 50% / contain no-repeat;
+  }
+  .text-inner {
+    font-size: 42px;
+    font-weight: 700;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 100%;
+    max-height: 100%;
+  }
+
+  // фаза 1
+  &.phase_1 {
+    background-image: url("../images/bg-1.svg");
+    .logo {
+      display: block;
+      // q
+      top: 20px;
+      left: 20px;
+    }
+    .sloth {
+      display: block;
+      width: 452px;
+      height: 570px;
+      position: absolute;
+      right: 20px;
+      top: 20px;
+      background-image: url("/images/sloth-1.svg");
+    }
+    .text-frame-1 {
+      display: block;
+      width: 326px;
+      height: 318px;
+      background-image: url("/images/cloud-1.svg");
+      position: absolute;
+      top: 314px;
+      left: 11px;
+    }
+  }
+  // фаза 2
+  &.phase_2 {
+    background-image: url("../images/bg-2.svg");
+  }
+
+  // фаза 3 - игра
+  &.phase_3 {
+    background-image: url("../images/bg-3(game-area).svg");
+  }
+
+  // служебные фреймы, работают на выигрыше-проигрыше
+  .final {
+  }
+  // фаза выигрыш
+  &.phase_win {
+    background-image: url("../images/bg-won.svg");
+    // поведение фреймов при выигрыше
+    &.final {
+    }
+  }
+  // фаза проигрыш
+  &.phase_lose {
+    background-image: url("../images/bg-lose.svg");
+    // поведение фреймов при проигрыше
+    &.final {
+    }
+  }
+  // поведение картинок
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+}
